@@ -11,13 +11,13 @@ ssh-keygen -t rsa -b 4096 -C "комментарий"
 ```shell
 ssh  $USER@$ADDRESS
 ```
-Вводим пароль.
-Настраиваем окружение
+Вводим пароль.  
+Настраиваем окружение  
 ```shell
 mkdir .ssh
 ```
 
-3) Оставляем открытый ключ
+3) Оставляем открытый ключ   
 Возвращаемся в клиент (`exit`) и передаём открытый ключ
 ```shell
 scp ~/.ssh/id_rsa.pub $USER@$ADDRESS:~/.ssh/
@@ -37,11 +37,12 @@ ssh  $USER@$ADDRESS -i ~/.ssh/id_rsa
 ```
  ssh-keygen -t rsa -b 4096 -C "комментарий"
 ```
-Назовём `git-key_rsa`.
-2) Заходим на страницу своего пользователя и добавляем публичный ключ
-https://github.com/settings/keys
-`cat ~/.ssh/git-key.rsa`
-3) Добавление в ssh агент:
+Назовём `git-key_rsa`.   
+2) Заходим на страницу своего пользователя и добавляем публичный ключ   
+Переходим: https://github.com/settings/keys   
+Вставляем *вывод* `cat ~/.ssh/git-key.rsa`   
+
+3) Добавление в ssh агент:  
 ```
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/git-key_rsa
